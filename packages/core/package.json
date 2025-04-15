@@ -1,0 +1,93 @@
+{
+  "name": "@siberiacancode/reactuse",
+  "version": "0.0.116",
+  "description": "The ultimate collection of react hooks",
+  "author": {
+    "name": "SIBERIA CAN CODE 🧊",
+    "url": "https://github.com/siberiacancode"
+  },
+  "license": "MIT",
+  "homepage": "https://siberiacancode.github.io/reactuse/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siberiacancode/reactuse.git",
+    "directory": "packages/core"
+  },
+  "bugs": "https://github.com/siberiacancode/reactuse/issues",
+  "keywords": [
+    "react",
+    "react hooks",
+    "react use",
+    "use",
+    "hooks"
+  ],
+  "sideEffects": false,
+  "exports": {
+    "types": "./dist/types/index.d.ts",
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.cjs"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepublishOnly": "pnpm unit-test run && pnpm build",
+    "build": "shx rm -rf dist && vite build",
+    "build:js": "tsc --project tsconfig.build.json && prettier --write src/bundle",
+    "lint": "eslint . --fix",
+    "lint-inspector": "npx @eslint/config-inspector@latest",
+    "format": "prettier --write .",
+    "pretty": "pnpm lint && pnpm format",
+    "unit-test": "vitest",
+    "lint-staged": "lint-staged"
+  },
+  "peerDependencies": {
+    "@types/react": "^18.0.0",
+    "react": "^17.0.2 || ^18.0.0",
+    "react-dom": "^17.0.2 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "screenfull": "^6.0.2"
+  },
+  "devDependencies": {
+    "@siberiacancode/vitest": "^2.1.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.2.0",
+    "@types/dom-speech-recognition": "^0.0.4",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@types/web-bluetooth": "^0.0.21",
+    "@vitejs/plugin-react": "^4.3.4",
+    "core-js": "^3.41.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "shx": "^0.4.0",
+    "vite": "^6.2.3",
+    "vite-plugin-dts": "^4.5.3",
+    "vitest": "^3.0.9"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+}
